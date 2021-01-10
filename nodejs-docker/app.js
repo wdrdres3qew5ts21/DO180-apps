@@ -6,7 +6,15 @@ app.get('/', function (req, res) {
 });
 
 app.get('/redhat', function (req, res) {
-  res.send('Go to Red Hatter!');
+  res.send({
+    "objective": "Go to be Openshift Specialist !"
+  });
+});
+
+app.get('/update', function (req, res) {
+  res.send({
+    "message": "[Content Update] This had been build from GIT !"
+  });
 });
 
 app.listen(8080, function () {
