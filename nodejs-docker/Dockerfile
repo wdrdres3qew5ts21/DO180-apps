@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package.json /app/
 RUN npm install
 
-FROM install_dependency 
+FROM node:12-buster-slim 
 WORKDIR /app
 COPY --from=install_dependency  /app   /app
 COPY  app.js /app
