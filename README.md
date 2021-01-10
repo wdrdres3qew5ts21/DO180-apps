@@ -26,4 +26,6 @@ podman run -p 9999:8080 nodejs-docker
 ซึ่งให้ลองสังเกตเพิ่มเติมว่า BuildConfig ไป Trigger สร้างการ Build จริงๆและด้วยการใช้ Strategy เป็น Docker นั้นเราจะไม่มีทางรู้ได้เลยว่าจะ Build ยังไงเราก็แก้ได้ด้วยการใช้ Dockerfile แทน S2I นั่นเอง
 
 Multi Stage ใช้งานได้แต่ต้องแยก Based Image ออกจากกันไม่สามารถใช้ From ตรงๆได้เลยแต่แรกเพราะ Openshift มันต้องเอาไป Build ก่อน
+สั่ง Build ผ่าน Command Line ได้ โดยการระบุ build config
 
+oc start-build nodejs-docker
