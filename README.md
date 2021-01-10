@@ -12,7 +12,9 @@ oc new-app centos/ruby-25-centos7~https://github.com/sclorg/ruby-ex.git
 oc new-app --as-deployment-config \
  docker.io/php:7.3.26-stretch~https://github.com/RedHatTraining/DO180-apps \
  --context-dir php-helloworld --name php-helloworld
-oc new-app --as-deployment-config  docker.io/php:7.3.26-stretch~https://github.com/RedHatTraining/DO180-apps  --context-dir php-helloworld --name php-helloworld --strategy=docker
+
+ 
+oc new-app --as-deployment-config  docker.io/php:7.3.26-stretch~https://github.com/wdrdres3qew5ts21/DO180-apps  --context-dir php-helloworld --name php-helloworld --strategy=docker
 ```
 
 เรามี build ได้สองแบบคือการใช้ strategy base image เป็น docker ถ้าไม่ระบุมันจะไปเอาของ Red Hat มา Build แทนและถ้าไม่เสียเงินก็จะทำไมไ่ด้
