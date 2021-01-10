@@ -6,7 +6,10 @@
   "author": "Red Hat Training",
   "license": "ASL",
   "dependencies": {
-    "express": "4.20",
-    "html-errors": "latest"
+    "express": "^4.17.1",
+    "http-error": "0.0.6"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
