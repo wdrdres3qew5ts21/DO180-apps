@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lnwza": "ls",
-    "cyberpunk": "node eee.js",
-    "real": "node server.js"
+    "cyberpunk": "node server.js",
+    "start": "node server.js"
   }
 }
