@@ -7,10 +7,7 @@ env PORT=8080
 
 RUN yum install httpd -y && yum clean all -y && \
         sed -i -e "s/Listen 80/Listen ${PORT}/g"  /etc/httpd/conf/httpd.conf && \
-        chown  apache:apache -R /etc/httpd/logs/ && \
-        chown  apache:apache -R /run/httpd && \
-        chmod -R 777 /run/httpd/ && \
-        chmod -R 777 /etc/httpd && \
-        chmod -R 777 /var/log/httpd
-
+        chown  apache:apache -R /etc/httpd && \
+        chown  apache:apache -R /run/httpd && 
+ 
 user apache
