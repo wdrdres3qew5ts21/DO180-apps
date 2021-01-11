@@ -10,7 +10,7 @@
     "http-error": "0.0.6"
   },
   "scripts": {
-    "lnwza": "node server.js",
+    "lnwza": "ls",
     "cyberpunk": "node server.js"
   }
 }
