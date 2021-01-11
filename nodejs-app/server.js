@@ -10,7 +10,14 @@ app.get('/', function (req, res) {
   })
 });
 
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!');
+app.get('/detect', function (req, res) {
+  res.send({
+    "message": `Hello World from pod: ${process.env.HOSTNAME}`,
+    "branch": `Detect Script Automatic`,
+  })
+});
+
+app.listen(9090, function () {
+  console.log('Example app listening on port 9090!');
 });
 
