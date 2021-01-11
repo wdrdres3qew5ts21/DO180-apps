@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 app.get('/detect', function (req, res) {
   res.send({
     "message": `Hello World from pod: ${process.env.HOSTNAME}`,
-    "branch": `Detect Script Automatic [Detect fault command]`,
+    "branch": `Detect Script Automatic [Detect fault Start]`,
   })
 });
 
