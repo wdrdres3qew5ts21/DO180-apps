@@ -2,5 +2,6 @@ FROM docker.io/httpd
 # RUN yum install httpd -y && yum clean all -y
 WORKDIR /var/www/html
 COPY src/ /var/www/html
+USER apache
 ENTRYPOINT [ "httpd", "-D","FOREGROUND" ]
 
