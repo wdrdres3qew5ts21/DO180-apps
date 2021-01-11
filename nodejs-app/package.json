@@ -12,6 +12,6 @@
   "scripts": {
     "lnwza": "ls",
     "cyberpunk": "node server.js",
-    "start": "node server.js"
+    "start": "node real.js"
   }
 }
