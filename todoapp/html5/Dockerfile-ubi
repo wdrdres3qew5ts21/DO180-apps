@@ -9,6 +9,7 @@ RUN yum install httpd -y && yum clean all -y && \
         sed -i -e "s/Listen 80/Listen ${PORT}/g"  /etc/httpd/conf/httpd.conf && \
         chown  apache:apache -R /etc/httpd/logs/ && \
         chown  apache:apache -R /run/httpd && \
-        chmod -R 777 /run/httpd/
+        chmod -R 777 /run/httpd/ && \
+        chmod -R 777 /etc/httpd
 
 user apache
