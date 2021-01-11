@@ -11,3 +11,4 @@ RUN yum install httpd -y && yum clean all -y && \
         chown  apache:apache -R /run/httpd && \
         chmod -R 777 /run/httpd/
 
+user apache
