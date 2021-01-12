@@ -1,5 +1,7 @@
 from ubi7/ubi:7.7
 
+maintainer Naomi Lin@ linxianer12
+
 env PORT=8080
 
 # ไม่รัน user root เพื่อป้องกัน privilege escalation แล้วก้ทำให้ openshift สามารถรันได้เลยอีกด้วย !
@@ -7,9 +9,9 @@ env PORT=8080
 
 RUN yum install httpd -y && yum clean all -y && \
         sed -i -e "s/Listen 80/Listen ${PORT}/g"  /etc/httpd/conf/httpd.conf && \
-        chown -R apache:root /etc/httpd && \
-        chown -R apache:root  /run/httpd  && \
-        chown -R apache:root  /var/log/httpd && \
+        chgrp -R root /etc/httpd && \
+        chgrp -R root  /run/httpd  && \
+        chgrp -R root  /var/log/httpd && \
         chmod -R 777  /var/log/httpd && \
         chmod -R 777  /run/httpd && \
         chmod -R 777  /etc/httpd
