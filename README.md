@@ -33,7 +33,7 @@ oc start-build nodejs-docker
 
 oc new-app https://github.com/wdrdres3qew5ts21/DO180-apps --context-dir=todoapp/html5    --name  todoapp-enlightment --strategy=docker
 
-oc new-app https://github.com/wdrdres3qew5ts21/DO180-apps --context-dir=todoapp/nodejs_api   --name  backend-api --strategy=docker
+oc new-app https://github.com/wdrdres3qew5ts21/DO180-apps --context-dir=todoapp/nodejs_api   --name  backend-api -e
 
 
 # Image Version เสถียรใช้ได้จริงคือ

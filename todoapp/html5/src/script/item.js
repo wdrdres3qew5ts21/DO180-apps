@@ -157,7 +157,7 @@ app.controller('alertMessagesController', function ($scope) {
 
 // Service that provides items operations
 app.factory('itemService', function ($resource) {
-    return $resource('http://api.lab.example.com:30080/todo/api/items/:id');
+    return $resource('http://backend-api:3000/todo/api/items/:id');
 });
 
 
@@ -168,7 +168,7 @@ app.controller('hostController', function ($scope, hostService) {
 
 //Service that provides host operations
 app.factory('hostService', function ($resource) {
-    return $resource('http://api.lab.example.com:30080/todo/api/host', null,
+    return $resource('http://backend-api:3000/todo/api/host', null,
                 {
                 'get': { method:'GET' }
                 });
