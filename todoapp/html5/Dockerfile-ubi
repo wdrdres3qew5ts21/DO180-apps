@@ -6,7 +6,8 @@ env PORT=8080
 
 # ไม่รัน user root เพื่อป้องกัน privilege escalation แล้วก้ทำให้ openshift สามารถรันได้เลยอีกด้วย !
 # เสียเรื่อง port ต่ำกว่า 1024
-
+# Apache Execute RWX สำหรับ Group ด้วยก็เลยตั้งมีไม่อย่างนั้นก้จะเจอ Permission Denied รัวๆ
+# ให้สิทธิเป็น group root แล้วก้จะทำงานได้เพราะว่า user container อยู่ใน group ของ root นั่นเอง !!!!
 RUN yum install httpd -y && yum clean all -y && \
         sed -i -e "s/Listen 80/Listen ${PORT}/g"  /etc/httpd/conf/httpd.conf && \
         chgrp -R root /etc/httpd && \
