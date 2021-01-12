@@ -5,21 +5,23 @@ var serverinfo = require('./controllers/serverinfo');
 
 var db = require('./models/db');
 var model = require('./models/items');
+console.log(process.env.MYSQL_DATABASE)
 
 model.connect(db.params, function(err) {
     if (err) throw err;
 });
 
 var server = restify.createServer() 
-    .use(restify.fullResponse())
-    .use(restify.queryParser())
-    .use(restify.bodyParser())
-    .use(restify.CORS());
+    .use(restify.plugins.fullResponse())
+    .use(restify.plugins.queryParser())
+    .use(restify.plugins.bodyParser());
+
+var server = restify.createServer();
     
 controller.context(server, '/todo/api', model); 
 serverinfo.context(server, '/todo/api'); 
 
-var port = process.env.PORT || 30080;
+var port = process.env.PORT || 3000;
 server.listen(port, function (err) {
     if (err)
         console.error(err);
