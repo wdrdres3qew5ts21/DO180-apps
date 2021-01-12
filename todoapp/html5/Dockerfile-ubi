@@ -12,8 +12,8 @@ RUN yum install httpd -y && yum clean all -y && \
         chgrp -R root /etc/httpd && \
         chgrp -R root  /run/httpd  && \
         chgrp -R root  /var/log/httpd && \
-        chmod -R 740  /var/log/httpd && \
-        chmod -R 740  /run/httpd && \
-        chmod -R 740  /etc/httpd
+        chmod -R 770  /var/log/httpd && \
+        chmod -R 770  /run/httpd && \
+        chmod -R 770  /etc/httpd
  
 user apache
