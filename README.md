@@ -29,3 +29,33 @@ Multi Stage ใช้งานได้แต่ต้องแยก Based Imag
 สั่ง Build ผ่าน Command Line ได้ โดยการระบุ build config
 
 oc start-build nodejs-docker
+
+# Image Version เสถียรใช้ได้จริงคือ
+quay.io/linxianer12/apache:1.0.15
+โดย image นี้จะตาม Best Pracetice ที่ทำได้ของ Openshift ไม่มีการรัน Container ด้วย Root user 
+```
+sh-4.2$ ls -alZ /run/httpd
+drwxrwxrwx. apache     apache system_u:object_r:container_file_t:s0:c27,c53 .
+drwxr-xr-x. root       root   system_u:object_r:container_file_t:s0:c27,c53 ..
+-rw-r--r--. 1002810000 root   system_u:object_r:container_file_t:s0:c27,c53 authdigest_shm.1
+drwxrwxrwx. apache     apache system_u:object_r:container_file_t:s0:c27,c53 htcacheclean
+-rw-r--r--. 1002810000 root   system_u:object_r:container_file_t:s0:c27,c53 httpd.pid
+sh-4.2$ 
+sh-4.2$ ls -alZ /var/log/httpd/
+drwxrwxrwx. apache     apache system_u:object_r:container_file_t:s0:c27,c53 .
+drwxr-xr-x. root       root   system_u:object_r:container_file_t:s0:c27,c53 ..
+-rw-r--r--. 1002810000 root   system_u:object_r:container_file_t:s0:c27,c53 access_log
+-rw-r--r--. 1002810000 root   system_u:object_r:container_file_t:s0:c27,c53 error_log
+sh-4.2$ 
+sh-4.2$ ls -alZ /etc/httpd/
+conf/           conf.d/         conf.modules.d/ logs/           modules/        run/            
+sh-4.2$ ls -alZ /etc/httpd/
+drwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 .
+drwxr-xr-x. root root system_u:object_r:container_file_t:s0:c27,c53 ..
+drwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 conf
+drwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 conf.d
+drwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 conf.modules.d
+lrwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 logs -> ../../var/log/httpd
+lrwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 modules -> ../../usr/lib64/httpd/modules
+lrwxrwxrwx. root root system_u:object_r:container_file_t:s0:c27,c53 run -> /run/httpd
+```
