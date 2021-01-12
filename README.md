@@ -30,6 +30,12 @@ Multi Stage ใช้งานได้แต่ต้องแยก Based Imag
 
 oc start-build nodejs-docker
 
+
+oc new-app https://github.com/wdrdres3qew5ts21/DO180-apps --context-dir=todoapp/html5    --name  todoapp-enlightment --strategy=docker
+
+oc new-app https://github.com/wdrdres3qew5ts21/DO180-apps --context-dir=todoapp/nodejs_api   --name  backend-api --strategy=docker
+
+
 # Image Version เสถียรใช้ได้จริงคือ
 quay.io/linxianer12/apache:1.0.15
 โดย image นี้จะตาม Best Pracetice ที่ทำได้ของ Openshift ไม่มีการรัน Container ด้วย Root user 
